@@ -19,6 +19,11 @@
 <body>
     {% include "navbar.html" %}
 
+    {% for image in images %}
+    <h2>{{image.name}}</h2>
+    <img src="{{image.photo.url}}" alt="image">
+    {% endfor %}
+
     {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     {% bootstrap_javascript %}
