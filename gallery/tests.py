@@ -1,5 +1,8 @@
 from django.test import TestCase
+
+from gallery.views import image
 from .models import Location, Category, Image
+from django.contrib.auth.models import User
 
 # Create your tests here.
 class LocationTest(TestCase):
@@ -110,3 +113,30 @@ class CategoryTest(TestCase):
         self.nature.update_category(self.nature.id,'travel')
         update = Category.objects.get(name = "travel")
         self.assertEqual(update.name, 'travel')
+
+class ImageTest(TestCase):
+    def setUp(self):
+        '''
+        creates new instances before a test
+        '''
+        self.nature = Category( name= "nature")
+        self.nairobi = Location (name = "Nairobi")
+        self.flower = Image(image = "image.png", name ='maua', description = 'beautiful', category= self.nature, location= self.nairobi)
+    
+    def tearDown(self):
+        '''
+        clears database after each test
+        '''
+        Image.objects.all().delete()
+        Category.objects.all().delete()
+        Location.objects.all().delete()
+
+    def test_image_instance(self):
+        '''
+        test whether the new image created is an instance of the Image class
+        '''
+        self.assertTrue(isinstance(self.flower, Image))
+
+        
+
+    
