@@ -85,7 +85,13 @@ function showModal(image_id,name,description,url,location,location_id,category,c
   $("#img-cat").attr("href", cat_link)
   $("#img-cat").text("#" + category)
   $("#img-pos").text(posted)
-  
+  $("#copy-url").val(window.location.origin + "/image/" + image_id)
+}
+
+function share(){
+  $("#copy-url").select()
+  document.execCommand('copy');
+  alert("Share link has been copied to your clipboard!")
 }
 
 
