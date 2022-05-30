@@ -5,26 +5,30 @@
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
 {% block content %}
+
 <div class="container-fluid mt-5">
-    <div class="content">
-        <div>
-            {% for image in first %}
-            <img onclick="showModal('{{image.name}}','{{image.description}}','{{image.image.url}}','{{image.location}}','{{image.category}}')"
-                class="image img-thumbnail" src="{{image.image.url}}">
-            {%endfor%}
-        </div>
-        <div>
-            {% for image in second %}
-            <img onclick="showModal('{{image.name}}','{{image.description}}','{{image.image.url}}','{{image.location}}','{{image.category}}')"
-                class="image img-thumbnail" src="{{image.image.url}}">
-            {%endfor%}
-        </div>
-        <div>
-            {% for image in third %}
-            <img onclick="showModal('{{image.name}}','{{image.description}}','{{image.image.url}}','{{image.location}}','{{image.category}}')"
-                class="image img-thumbnail" src="{{image.image.url}}">
-            {%endfor%}
+    <div>
+        <div class="content">
+            <div>
+                {% for image in first %}
+                <img onclick="showModal('{{image.id}}','{{image.name}}','{{image.description}}','{{image.photo.url}}','{{image.location}}','{{image.location.id}}','{{image.category}}', '{{image.category.id}}', '{{image.post_date}}') "
+                    class="image img-thumbnail" id={{image.name}} src="{{image.image.url}}">
+                {%endfor%}
+            </div>
+            <div>
+                {% for image in second %}
+                <img onclick="showModal('{{image.id}}','{{image.name}}','{{image.description}}','{{image.photo.url}}','{{image.location}}','{{image.location.id}}','{{image.category}}')"
+                    class="image img-thumbnail" id={{image.name}} src="{{image.image.url}}">
+                {%endfor%}
+            </div>
+            <div>
+                {% for image in third %}
+                <img onclick="showModal('{{image.id}}','{{image.name}}','{{image.description}}','{{image.photo.url}}','{{image.location}}','{{image.location.id}}','{{image.category}}')"
+                    class="image img-thumbnail" id={{image.name}} src="{{image.image.url}}">
+                {%endfor%}
+            </div>
         </div>
     </div>
 </div>
+
 {% endblock %}

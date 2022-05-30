@@ -17,6 +17,7 @@
     {% block styles %}
     {% bootstrap_css %}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <script src="https://kit.fontawesome.com/fc57a8925a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% endblock %}
 </head>
@@ -36,51 +37,31 @@
                     <h5 class="modal-title" id="img-name"></h5>
                 </div>
                 <div class="modal-body" style="position: relative;" class="text-centre">
-                    <img alt="image" class="mod-img">
+                    <a id="img-link" style="cursor: zoom-in;"><img alt="image" class="mod-img"></a>
                     <div class="details-content">
-                        <div class="img-share" onclick="copy()">
-                            <a id="share" class="share-icon" href="#"><i class="fas fa-share-alt"></i></a>
+                        <div class="img-share" onclick="share()">
+                            <a id="share" class="share-icon"><i class="fas fa-share-alt"></i></a>
                         </div>
-
+                        <a id="img-cat" class="badge badge-secondary"></a>
                         <div class="details-meta">
-                            <i class="fas fa-map-marker-alt"></i>&nbsp;<a href="#" id="img-loc"
-                                style="color: #333;"></a>
+                            <i class="fas fa-map-marker-alt"></i>&nbsp;<a id="img-loc" style="color: #333;"></a>
                             <time id="img-pos"></time>
                         </div>
-                        <span id="img-cat" class="badge badge-secondary">Secondary</span>
                     </div>
                     <p id="img-desc"></p>
+                    <input name="" id="copy-url" style="position:relative;left:15000px; height: 1px;">
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h5 class="modal-title" id="img-name"></h5>
-                </div>
-                <div class="modal-body">
-                    <img style="width: 100%; height: 100%;" alt="" class="mod-img">
-                    <p>About image</p>
-                    <p id="img-desc"></p>
-                    <p id="img-loc"></p>
-                    @@ -46,56 +46,14 @@ <h5 class="modal-title" id="img-label"></h5>
-                </div>
-            </div>
-        </div>
-    </div>
     {% block content %}
     {%endblock%}
 
     {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src=" {% static 'js/script.js' %}"></script>
     {% bootstrap_javascript %}
+    <script src=" {% static 'js/script.js' %}"></script>
     {% endblock %}
 </body>
 
