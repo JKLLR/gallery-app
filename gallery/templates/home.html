@@ -7,48 +7,54 @@
       <p class="mb-0">A picture is worth a thousand words here are some of mine.</p>
       <footer class="blockquote-footer mt-2 " style="color: palevioletred;"><em>Jeff Huria</em></footer>
     </blockquote>
-    <div class="col-md-5 col-sm-6">
-    </div>
-  </div>
-  <div>
-    <div class="content">
-      <div>
-        {% for image in first %}
-        <img
-          onclick="showModal('{{image.id}}','{{image.name}}','{{image.description}}','{{image.image.url}}','{{image.location}}','{{image.location.id}}','{{image.category}}', '{{image.category.id}}', '{{image.post_date}}') "
-          class="image img-thumbnail" id={{image.name}} src="{{image.image.url}}">
-        {%endfor%}
-      </div>
-      <div>
-        {% for image in second %}
-        <img
-          onclick="showModal('{{image.id}}','{{image.name}}','{{image.description}}','{{image.image.url}}','{{image.location}}','{{image.location.id}}','{{image.category}}')"
-          class="image img-thumbnail" id={{image.name}} src="{{image.image.url}}">
-        {%endfor%}
-      </div>
-      <div>
-        {% for image in third %}
-        <img
-          onclick="showModal('{{image.id}}','{{image.name}}','{{image.description}}','{{image.image.url}}','{{image.location}}','{{image.location.id}}','{{image.category}}')"
-          class="image img-thumbnail" id={{image.name}} src="{{image.image.url}}">
-        {%endfor%}
-      </div>
+    <div class="text-center mt-5 pb-4">
+      {% if categories %}
+      {% for category in categories %}
+      <a href="/category/{{category.id}}" class="badge badge-secondary" style="margin-left: 1%;">#{{category.name}}</a>
+      {% endfor %}
+      {% endif %}
     </div>
   </div>
 </div>
+<div>
+  <div class="content">
+    <div>
+      {% for image in first %}
+      <img
+        onclick="showModal('{{image.id}}','{{image.name}}','{{image.description}}','{{image.image.url}}','{{image.location}}','{{image.location.id}}','{{image.category}}', '{{image.category.id}}', '{{image.post_date}}') "
+        class="image img-thumbnail" id={{image.name}} src="{{image.image.url}}">
+      {%endfor%}
+    </div>
+    <div>
+      {% for image in second %}
+      <img
+        onclick="showModal('{{image.id}}','{{image.name}}','{{image.description}}','{{image.image.url}}','{{image.location}}','{{image.location.id}}','{{image.category}}')"
+        class="image img-thumbnail" id={{image.name}} src="{{image.image.url}}">
+      {%endfor%}
+    </div>
+    <div>
+      {% for image in third %}
+      <img
+        onclick="showModal('{{image.id}}','{{image.name}}','{{image.description}}','{{image.image.url}}','{{image.location}}','{{image.location.id}}','{{image.category}}')"
+        class="image img-thumbnail" id={{image.name}} src="{{image.image.url}}">
+      {%endfor%}
+    </div>
+  </div>
+</div>
+</div>
 
-<div class="footer bg-light">
-  <div class="copyright">
-      © Copyright
-      <strong><span>Jeff Huria</span></strong>.
-      All Rights Reserved
+<div class="footer text-center bg-light">
+  <div class="copyright text-center">
+    © Copyright
+    <strong><span>Jeff Huria</span></strong>.
+    All Rights Reserved
   </div>
   <div class="credits">
-      Designed by:
-      <br><br>
-      <a href="https://github.com/jkllr" target="blank">
-           Jeff .K. Huria
-      </a>
+    Designed by:
+    <br><br>
+    <a href="https://github.com/jkllr" target="blank">
+      Jeff .K. Huria
+    </a>
   </div>
 </div>
 {% endblock %}
